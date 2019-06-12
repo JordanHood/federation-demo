@@ -12,6 +12,10 @@ const typeDefs = gql`
     price: Int
     weight: Int
   }
+  extend type Order @key(fields: "productIds") {
+    productIds: [String!]! @external
+    products: [Product]
+  }
 `;
 
 const resolvers = {
